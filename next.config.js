@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  // Changed from 'standalone' to be more compatible with Netlify
+  output: 'export',
   images: { 
     unoptimized: true,
     remotePatterns: [
@@ -10,6 +11,8 @@ const nextConfig = {
       }
     ]
   },
+  // Set trailingSlash to true for better compatibility with static hosting
+  trailingSlash: true,
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
