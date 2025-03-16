@@ -1,3 +1,5 @@
+"use client";
+
 import { WhyAircoTable } from "./WhyAircoTable";
 import { AircoTypesTable } from "./AircoTypesTable";
 import { AircoFactorsTable } from "./AircoFactorsTable";
