@@ -1,38 +1,8 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import Link from "next/link";
+// Modified for static export compatibility
+// Using static HTML instead of interactive features
 
 export function AircoTableOfContents() {
-  const [activeSection, setActiveSection] = useState<string>("");
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      const headings = document.querySelectorAll('h2, h3');
-      const scrollPosition = window.scrollY;
-      
-      // Find the section that's currently in view
-      for (let i = headings.length - 1; i >= 0; i--) {
-        const heading = headings[i];
-        const topOffset = heading.getBoundingClientRect().top + window.scrollY - 100;
-        
-        if (scrollPosition >= topOffset) {
-          const id = heading.id || '';
-          setActiveSection(id);
-          break;
-        }
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    // Initial check
-    handleScroll();
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-  
+  // Static sections list instead of dynamic tracking
   const sections = [
     { id: "waarom-een-airco", title: "Waarom een Airco?", level: 2 },
     { id: "types-van-aircos", title: "Types van Airco's", level: 2 },
@@ -61,27 +31,12 @@ export function AircoTableOfContents() {
               key={section.id} 
               className={`${section.level === 3 ? 'ml-4' : ''}`}
             >
-              <Link 
+              <a 
                 href={`#${section.id}`}
-                className={`
-                  block py-1 px-2 rounded transition-colors
-                  ${activeSection === section.id 
-                    ? 'bg-blue-100 text-blue-800 font-medium' 
-                    : 'text-blue-600 hover:bg-blue-50'}
-                `}
-                onClick={(e) => {
-                  e.preventDefault();
-                  const element = document.getElementById(section.id);
-                  if (element) {
-                    const yOffset = -80; // Adjusted for header height
-                    const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-                    window.scrollTo({ top: y, behavior: 'smooth' });
-                    setActiveSection(section.id);
-                  }
-                }}
+                className="block py-1 px-2 rounded transition-colors text-blue-600 hover:bg-blue-50"
               >
                 {section.title}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>

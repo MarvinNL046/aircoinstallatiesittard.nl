@@ -1,11 +1,5 @@
-"use client";
-
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+// Modified for static export compatibility
+// Using static HTML instead of interactive accordion for better SSG compatibility
 
 export function AircoFAQ() {
   return (
@@ -18,12 +12,14 @@ export function AircoFAQ() {
       </div>
       
       <div className="bg-white p-6">
-        <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="item-1" className="border-b border-blue-100">
-            <AccordionTrigger className="text-blue-800 hover:text-blue-600 py-4">
+        {/* Static FAQ items instead of accordion */}
+        <div className="space-y-6">
+          {/* FAQ Item 1 */}
+          <div className="border-b border-blue-100 pb-6">
+            <h3 className="text-lg font-semibold text-blue-800 mb-3">
               Wat kost een airco inclusief installatie?
-            </AccordionTrigger>
-            <AccordionContent className="text-blue-700 pb-4">
+            </h3>
+            <div className="text-blue-700">
               <p>
                 De totale kosten variëren afhankelijk van het type airco en de complexiteit van de installatie:
               </p>
@@ -39,14 +35,15 @@ export function AircoFAQ() {
                 </a>{" "}
                 voor een exacte prijsopgave aangepast aan uw specifieke situatie.
               </p>
-            </AccordionContent>
-          </AccordionItem>
+            </div>
+          </div>
           
-          <AccordionItem value="item-2" className="border-b border-blue-100">
-            <AccordionTrigger className="text-blue-800 hover:text-blue-600 py-4">
+          {/* FAQ Item 2 */}
+          <div className="border-b border-blue-100 pb-6">
+            <h3 className="text-lg font-semibold text-blue-800 mb-3">
               Hoeveel stroom verbruikt een airco?
-            </AccordionTrigger>
-            <AccordionContent className="text-blue-700 pb-4">
+            </h3>
+            <div className="text-blue-700">
               <p>
                 Het stroomverbruik hangt af van het vermogen, de energie-efficiëntie (SEER/SCOP-waarde) en de gebruiksduur:
               </p>
@@ -58,14 +55,15 @@ export function AircoFAQ() {
               <p className="mt-3">
                 Energiezuinige modellen met een hoge SEER-waarde (A+++) kunnen het verbruik aanzienlijk verlagen.
               </p>
-            </AccordionContent>
-          </AccordionItem>
+            </div>
+          </div>
           
-          <AccordionItem value="item-3" className="border-b border-blue-100">
-            <AccordionTrigger className="text-blue-800 hover:text-blue-600 py-4">
+          {/* FAQ Item 3 */}
+          <div className="border-b border-blue-100 pb-6">
+            <h3 className="text-lg font-semibold text-blue-800 mb-3">
               Heb ik toestemming nodig voor het installeren van een airco?
-            </AccordionTrigger>
-            <AccordionContent className="text-blue-700 pb-4">
+            </h3>
+            <div className="text-blue-700">
               <p>Dit hangt af van uw woonsituatie:</p>
               <ul className="list-disc list-inside mt-2 space-y-1">
                 <li><span className="font-medium">Koopwoning:</span> Voor de binnendeel is geen vergunning nodig. Voor de buitenunit gelden gemeentelijke regels, check bij uw gemeente.</li>
@@ -75,14 +73,15 @@ export function AircoFAQ() {
               <p className="mt-3">
                 In sommige gemeenten is de installatie van een airco vergunningsvrij als de buitenunit aan de achterkant van het huis wordt geplaatst, maar dit verschilt per gemeente en situatie.
               </p>
-            </AccordionContent>
-          </AccordionItem>
+            </div>
+          </div>
           
-          <AccordionItem value="item-4" className="border-b border-blue-100">
-            <AccordionTrigger className="text-blue-800 hover:text-blue-600 py-4">
+          {/* FAQ Item 4 */}
+          <div className="border-b border-blue-100 pb-6">
+            <h3 className="text-lg font-semibold text-blue-800 mb-3">
               Kan ik ook verwarmen met een airco?
-            </AccordionTrigger>
-            <AccordionContent className="text-blue-700 pb-4">
+            </h3>
+            <div className="text-blue-700">
               <p>
                 Ja, de meeste moderne split airco's zijn warmtepompen die ook kunnen verwarmen:
               </p>
@@ -97,14 +96,15 @@ export function AircoFAQ() {
                   Meer informatie over verwarmen met airco
                 </a>
               </p>
-            </AccordionContent>
-          </AccordionItem>
+            </div>
+          </div>
           
-          <AccordionItem value="item-5">
-            <AccordionTrigger className="text-blue-800 hover:text-blue-600 py-4">
+          {/* FAQ Item 5 */}
+          <div>
+            <h3 className="text-lg font-semibold text-blue-800 mb-3">
               Hoe lang gaat een airco mee?
-            </AccordionTrigger>
-            <AccordionContent className="text-blue-700 pb-4">
+            </h3>
+            <div className="text-blue-700">
               <p>
                 De levensduur van een airco wordt bepaald door meerdere factoren:
               </p>
@@ -116,9 +116,9 @@ export function AircoFAQ() {
               <p className="mt-3">
                 Regelmatig onderhoud zoals filter reinigen (elke 2-4 weken) en jaarlijkse professionele controle kan de levensduur aanzienlijk verlengen. Kwaliteitsmerken gaan over het algemeen langer mee dan goedkopere alternatieven.
               </p>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

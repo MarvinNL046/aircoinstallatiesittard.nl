@@ -1,5 +1,4 @@
-"use client";
-
+// Removed "use client" directive for static export compatibility
 import { WhyAircoTable } from "./WhyAircoTable";
 import { AircoTypesTable } from "./AircoTypesTable";
 import { AircoFactorsTable } from "./AircoFactorsTable";
@@ -8,7 +7,6 @@ import { SplitAircoDiagram } from "./SplitAircoDiagram";
 import { AircoFAQ } from "./AircoFAQ";
 import { AircoTableOfContents } from "./AircoTableOfContents";
 import { RelatedArticles } from "@/components/sections/related-articles";
-import Script from "next/script";
 
 export function AircoKopenContent() {
   const relatedArticles = [
@@ -29,76 +27,9 @@ export function AircoKopenContent() {
     }
   ];
 
-  // FAQs for schema markup
-  const aircoFAQs = [
-    {
-      question: "Wat kost een airco inclusief installatie?",
-      answer: "De kosten variëren per type: Mobiele airco (€300-€800), Monoblock (€700-€1.500 + €200-€400 installatie), Split airco (€1.000-€2.500 + €400-€800 installatie), Multi-split (€2.500-€5.000+ + €800-€1.500 installatie)."
-    },
-    {
-      question: "Hoeveel stroom verbruikt een airco?",
-      answer: "Een 2,5kW split airco met SEER 8.5 verbruikt ongeveer 0,3 kWh per uur. Bij €0,25/kWh kost dit €0,08 per uur. Bij 6 uur per dag gedurende 3 zomermaanden komt dit op ongeveer €43."
-    },
-    {
-      question: "Heb ik toestemming nodig voor het installeren van een airco?",
-      answer: "In een koopwoning is voor de binnenunit geen vergunning nodig, voor de buitenunit gelden gemeentelijke regels. Bij huurwoningen is toestemming van de verhuurder vereist, bij VvE's is toestemming van de VvE nodig."
-    },
-    {
-      question: "Kan ik ook verwarmen met een airco?",
-      answer: "Ja, moderne split airco's zijn warmtepompen die ook kunnen verwarmen. Ze werken efficiënt tot buitentemperaturen van -15°C en zijn 3-5x efficiënter dan traditionele elektrische verwarming."
-    },
-    {
-      question: "Hoe lang gaat een airco mee?",
-      answer: "De levensduur varieert per type: Split airco (10-15 jaar bij goed onderhoud), Monoblock airco (8-12 jaar), Mobiele airco (5-10 jaar). Regelmatig onderhoud verlengt de levensduur aanzienlijk."
-    }
-  ];
-
   return (
     <>
-      {/* JSON-LD Schema for Article and FAQ */}
-      <Script id="schema-airco-kopen" type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "TechArticle",
-          "headline": "Waarom een Airco Kopen? Complete Gids [2025]",
-          "description": "Ontdek alles over het kopen van een airco: types, kosten, energiebesparing en installatietips. Expert advies voor de beste airco keuze voor jouw ruimte.",
-          "image": "https://staycoolairco.nl/images/products/Daiseikai%2010-Hout-vooraanzicht_2_11zon.webp",
-          "datePublished": "2025-03-16",
-          "dateModified": "2025-03-16",
-          "author": {
-            "@type": "Organization",
-            "name": "StayCool Airco Sittard"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "StayCool Airco Sittard",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://aircoinstallatiesittard.nl/logo.png"
-            }
-          },
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://aircoinstallatiesittard.nl/blog/waarom-een-airco-kopen"
-          }
-        })
-      }} />
-      
-      <Script id="schema-airco-faq" type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": aircoFAQs.map(faq => ({
-            "@type": "Question",
-            "name": faq.question,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": faq.answer
-            }
-          }))
-        })
-      }} />
-
+      {/* Structured data is now added directly to the page component */}
       <div className="flex flex-col lg:flex-row gap-12">
         {/* Sidebar */}
         <aside className="lg:w-1/4">
