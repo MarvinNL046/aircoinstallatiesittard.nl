@@ -1,5 +1,26 @@
 export const blogPosts = [
   {
+    slug: "waarom-een-airco-kopen",
+    title: "Waarom een Airco Kopen?",
+    date: "2025-03-16",
+    excerpt: "Alles wat je moet weten over het kopen van een airco: vergelijk types, leer over belangrijke factoren en krijg praktische tips voor de beste keuze.",
+    content: `
+      <p>In de zomermaanden kan de temperatuur in Nederland flink oplopen, wat het soms oncomfortabel maakt om thuis of op kantoor te verblijven. Een airco biedt de perfecte oplossing om je ruimte koel en aangenaam te houden. Maar waar moet je op letten als je een airco wilt kopen? In dit blogbericht ontdek je alles wat je moet weten over het kopen van een airco.</p>
+      
+      <h2>Waarom een Airco?</h2>
+      <p>Een airco biedt veel voordelen, zoals meer comfort, verhoogde productiviteit en gezondheidsvoordelen door verminderde hitte-gerelateerde klachten.</p>
+      
+      <h2>Types van Airco's</h2>
+      <p>Er zijn drie hoofdtypen airco's waaruit je kunt kiezen: split airco's, monoblock airco's en mobiele airco's. Elk type heeft zijn eigen voor- en nadelen.</p>
+      
+      <h2>Factoren om te Overwegen</h2>
+      <p>Bij het kopen van een airco zijn er een aantal belangrijke aspecten om rekening mee te houden, zoals ruimtegrootte, energie-efficiëntie en geluidsniveau.</p>
+      
+      <h2>Conclusie</h2>
+      <p>Het kopen van een airco vraagt om aandacht voor het type, de grootte en de energie-efficiëntie. Met de juiste keuze geniet je de hele zomer van een koele en comfortabele ruimte.</p>
+    `,
+  },
+  {
     slug: "voordelen-van-airconditioning",
     title: "De 7 Belangrijkste Voordelen van een Airconditioning",
     date: "2024-02-20",

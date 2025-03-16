@@ -112,6 +112,27 @@ export function Footer() {
               ))}
             </ul>
           </div>
+
+          <div>
+            <h3 className="font-semibold">Populaire Blogs</h3>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li>
+                <Link href="/blog/waarom-een-airco-kopen" className="hover:text-blue-200">
+                  Waarom een Airco Kopen?
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/voordelen-van-airconditioning" className="hover:text-blue-200">
+                  Voordelen van Airconditioning
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/onderhoud-tips-airco" className="hover:text-blue-200">
+                  Onderhoudstips voor Airco
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div className="mt-8 border-t border-blue-800 pt-8 text-center text-sm text-blue-200">
