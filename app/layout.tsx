@@ -147,7 +147,9 @@ export default function RootLayout({
       suppressHydrationWarning
       className="scroll-smooth antialiased"
     >
-      <head />
+      <head>
+        <meta name="google-site-verification" content="YY44pWAORvVgaulbAKZ5k-zH0o_kjIXXNkTk1RkKah4" />
+      </head>
       <body 
         className={`${inter.className} min-h-screen flex flex-col`}
         suppressHydrationWarning
