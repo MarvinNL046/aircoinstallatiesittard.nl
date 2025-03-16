@@ -148,7 +148,7 @@ export default function RootLayout({
       className="scroll-smooth antialiased"
     >
       <head>
-        <meta name="google-site-verification" content="YY44pWAORvVgaulbAKZ5k-zH0o_kjIXXNkTk1RkKah4" />
+        <meta name="google-site-verification" content="EQpJdpght562VGBvM8W5osmqUNSCOAKV1bFnvB9rCig" />
       </head>
       <body 
         className={`${inter.className} min-h-screen flex flex-col`}
