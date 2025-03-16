@@ -1,4 +1,4 @@
-import { Organization, WithContext, Service, LocalBusiness } from "schema-dts"
+import { Organization, WithContext, Service, LocalBusiness, Article, FAQPage } from "schema-dts"
 
 export function generateOrganizationSchema(): WithContext<Organization> {
   return {
@@ -52,6 +52,64 @@ export function generateServiceSchema(service: {
         priceCurrency: "EUR",
       },
     },
+  }
+}
+
+export function generateArticleSchema(article: {
+  title: string;
+  description: string;
+  slug: string;
+  datePublished: string;
+  dateModified?: string;
+  imageUrl?: string;
+  authorName?: string;
+}): WithContext<Article> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    headline: article.title,
+    description: article.description,
+    url: `https://aircoinstallatiesittard.nl/blog/${article.slug}`,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified || article.datePublished,
+    image: article.imageUrl,
+    author: article.authorName ? {
+      "@type": "Person",
+      name: article.authorName
+    } : {
+      "@type": "Organization",
+      name: "StayCool Airco Sittard"
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "StayCool Airco Sittard",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://aircoinstallatiesittard.nl/logo.png"
+      }
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://aircoinstallatiesittard.nl/blog/${article.slug}`
+    }
+  }
+}
+
+export function generateFAQSchema(faqs: Array<{
+  question: string;
+  answer: string;
+}>): WithContext<FAQPage> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(faq => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer
+      }
+    }))
   }
 }
 

@@ -2,8 +2,34 @@ import { Metadata } from "next"
 import { AircoKopenContent } from "@/components/blog/airco-kopen/airco-kopen-content"
 
 export const metadata: Metadata = {
-  title: "Waarom een Airco Kopen? | Complete Gids | Airco Offerte Limburg",
-  description: "Alles wat je moet weten over het kopen van een airco: vergelijk types, leer over belangrijke factoren en krijg praktische tips voor de beste keuze.",
+  title: "Waarom een Airco Kopen? Complete Gids [2025] | StayCool Airco Sittard",
+  description: "Ontdek alles over het kopen van een airco: types, kosten, energiebesparing en installatietips. Expert advies voor de beste airco keuze voor jouw ruimte ✓",
+  keywords: ["airco kopen", "airconditioning", "split airco", "mobiele airco", "monoblock airco", "SEER waarden", "airco prijs", "airco installatie"],
+  alternates: {
+    canonical: "https://aircoinstallatiesittard.nl/blog/waarom-een-airco-kopen",
+  },
+  openGraph: {
+    type: "article",
+    locale: "nl_NL",
+    url: "https://aircoinstallatiesittard.nl/blog/waarom-een-airco-kopen",
+    title: "Waarom een Airco Kopen? - Complete Koopgids 2025",
+    description: "De ultieme gids voor het kopen van een airco: vergelijk types, bekijk kosten en krijg expert advies voor de beste keuze die past bij jouw situatie.",
+    images: [
+      {
+        url: "https://staycoolairco.nl/images/products/Daiseikai%2010-Hout-vooraanzicht_2_11zon.webp",
+        width: 800,
+        height: 600,
+        alt: "Toshiba Daiseikai 10 split airco unit in moderne woonkamer",
+      },
+    ],
+    siteName: "StayCool Airco Sittard",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Waarom een Airco Kopen? Complete Gids [2025]",
+    description: "Ontdek alles over het kopen van een airco: types, kosten, energiebesparing en installatietips.",
+    images: ["https://staycoolairco.nl/images/products/Daiseikai%2010-Hout-vooraanzicht_2_11zon.webp"],
+  },
 }
 
 export default function AircoKopenBlogPage() {
