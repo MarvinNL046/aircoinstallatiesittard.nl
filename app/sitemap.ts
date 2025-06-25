@@ -13,6 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { route: '', priority: 1.0 }, // Homepage
     { route: 'offerte', priority: 0.9 }, // High priority for conversion page
     { route: 'diensten', priority: 0.9 },
+    { route: 'producten', priority: 0.9 }, // High priority for product showcase
     { route: 'contact', priority: 0.8 },
     { route: 'over-ons', priority: 0.7 },
     { route: 'faq', priority: 0.7 },

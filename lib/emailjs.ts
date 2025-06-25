@@ -1,44 +1,36 @@
 import emailjs from '@emailjs/browser';
 
 // Initialize EmailJS with your public key
-emailjs.init({
-  publicKey: "sjJ8kK6U9wFjY0zX9",
-});
+emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
 
-// EmailJS service and template IDs
-export const EMAILJS_SERVICE_ID = "service_1rruujp";
-export const EMAILJS_TEMPLATE_ID = "template_rkcpzhg";
-
-interface EmailFormData {
+export interface EmailData {
   name: string;
   email: string;
   phone: string;
-  message: string;
+  message?: string;
+  postcode?: string;
+  service?: string;
 }
 
-export const sendEmail = async (formData: EmailFormData) => {
+export const sendEmail = async (data: EmailData) => {
   try {
-    const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      phone: formData.phone,
-      message: formData.message,
-      contact_number: Math.random() * 100000 | 0,
-    };
-
     const response = await emailjs.send(
-      EMAILJS_SERVICE_ID,
-      EMAILJS_TEMPLATE_ID,
-      templateParams
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+      {
+        to_email: 'info@staycoolairco.nl',
+        from_name: data.name,
+        from_email: data.email,
+        phone: data.phone,
+        message: data.message || 'Geen bericht opgegeven',
+        postcode: data.postcode || 'Niet opgegeven',
+        service: data.service || 'Algemene aanvraag',
+      }
     );
 
-    if (response.status !== 200) {
-      throw new Error('Failed to send email');
-    }
-
-    return response;
+    return { success: true, response };
   } catch (error) {
-    console.error('Email sending failed:', error);
-    throw error;
+    console.error('EmailJS error:', error);
+    return { success: false, error };
   }
 };

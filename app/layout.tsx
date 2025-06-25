@@ -14,10 +14,10 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL('https://aircoinstallatiesittard.nl'),
   title: {
-    default: 'Airco Installatie Sittard | StayCool Airco | Gratis Offerte Binnen 24 Uur ✓',
-    template: '%s | StayCool Airco Sittard'
+    default: 'Airco Limburg | Airco Installateur Zuid-Limburg | StayCool ✓',
+    template: '%s | Airco Specialist Limburg'
   },
-  description: 'Dé airco specialist in Sittard! ✓ Professionele installatie door StayCool Airco ✓ Erkend installateur ✓ Alle topmerken ✓ Binnen 24 uur reactie ✓ Beste prijs-kwaliteit ✓ 5 jaar garantie. Bel nu: 046 202 1430',
+  description: 'Airco Limburg - StayCool is dé airco specialist voor heel Limburg! ✓ Airco installatie Sittard, Maastricht, Heerlen ✓ Airco service Zuid-Limburg ✓ Mitsubishi & Daikin airco dealer ✓ Airco kopen en installeren. Bel: 046 202 1430',
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -29,12 +29,26 @@ export const metadata = {
     ],
   },
   keywords: [
-    // Primaire zoektermen
-    'airco installatie sittard',
-    'airco specialist sittard',
-    'airco monteur sittard',
-    'airco bedrijf sittard',
-    'airconditioning sittard',
+    // Primaire Limburg zoektermen
+    'airco limburg',
+    'airco service limburg',
+    'airco specialist limburg',
+    'airco installateur limburg',
+    'airco zuid limburg',
+    'klimaatbeheersing limburg',
+    
+    // Steden specifiek
+    'airco sittard',
+    'airco maastricht',
+    'airco heerlen',
+    'airco roermond',
+    'airco kerkrade',
+    'airco brunssum',
+    'airco geleen',
+    'airco landgraaf',
+    'airco parkstad',
+    'airco voerendaal',
+    'airco hoensbroek',
     
     // Installatie en service
     'professionele airco installatie',
@@ -58,24 +72,40 @@ export const metadata = {
     'airco voor slaapkamer',
     'beste airco voor thuis',
     
-    // Commercieel
-    'airco kopen sittard',
-    'airco sittard prijzen',
-    'airco prijsvergelijking',
-    'airco financiering',
-    'goedkope airco installatie',
+    // Commercieel Limburg
+    'airco kopen limburg',
+    'airco kopen en laten installeren limburg',
+    'airco installatie limburg',
+    'airco bedrijf limburg',
+    'airco bedrijven limburg',
+    'airco montage limburg',
+    'airco onderhoud limburg',
+    'airco limburg aanbieding',
+    'profi airco',
+    'airco direct geleen',
     
-    // Expertise en advies
-    'airco showroom sittard',
-    'airco advies op maat',
-    'gecertificeerde airco monteurs',
-    'airco merken',
-    'premium airco merken',
+    // Merken specifiek
+    'mitsubishi airco limburg',
+    'daikin airco limburg',
+    'airco kopen en laten installeren mitsubishi',
+    
+    // Service gebieden
+    'aircoservice limburg',
+    'aircospecialist limburg',
+    'airco service sittard',
+    'airco service geleen',
+    'airco service voerendaal',
+    'airco service achterhoek',
+    'split airco brunssum',
+    'airconditioning kerkrade',
+    'airconditioning sittard',
     
     // Conversie gericht
+    'airco plaatsen limburg',
+    'air conditioning near me',
+    'air conditioning installation near me',
     'airco offerte aanvragen',
     'airco laten plaatsen',
-    'airco installatie advies',
     
     // Seizoensgebonden
     'airco voor zomer en winter',

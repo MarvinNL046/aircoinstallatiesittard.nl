@@ -15,13 +15,16 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="text-xl font-bold text-blue-600">
-            Airco Offerte Limburg
+            StayCool Airco
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/diensten" className="text-gray-600 hover:text-blue-600">
               Diensten
+            </Link>
+            <Link href="/producten" className="text-gray-600 hover:text-blue-600">
+              Producten
             </Link>
             <Link href="/over-ons" className="text-gray-600 hover:text-blue-600">
               Over Ons
@@ -61,6 +64,12 @@ export default function Header() {
                 className="text-gray-600 hover:text-blue-600 px-2"
               >
                 Diensten
+              </Link>
+              <Link
+                href="/producten"
+                className="text-gray-600 hover:text-blue-600 px-2"
+              >
+                Producten
               </Link>
               <Link
                 href="/over-ons"

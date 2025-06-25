@@ -13,7 +13,7 @@ interface CityPageProps {
 
 export async function generateMetadata({ params }: CityPageProps): Promise<Metadata> {
   const cities = await getCities()
-  const cityData = cities.find(city => city.city.toLowerCase() === params.city)
+  const cityData = cities.find(city => city.slug === params.city)
   
   if (!cityData) {
     return {
@@ -28,8 +28,8 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
     openGraph: {
       title: `Airco Installatie ${cityData.city} | StayCool Airco Maastricht`,
       description: `Professionele airconditioning installatie en onderhoud in ${cityData.city} door StayCool Airco. Erkend en gecertificeerd installateur.`,
-      url: `https://aircoinstallatie-maastricht.nl/steden/${params.city}`,
-      siteName: "StayCool Airco Maastricht",
+      url: `https://aircoinstallatiesittard.nl/steden/${params.city}`,
+      siteName: "StayCool Airco Sittard",
       locale: "nl_NL",
       type: "website",
     },
@@ -39,14 +39,14 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
 export async function generateStaticParams() {
   const cities = await getCities()
   return cities.map((city) => ({
-    city: city.city.toLowerCase(),
+    city: city.slug,
   }))
 }
 
 export default async function CityPage({ params }: CityPageProps) {
   const cities = await getCities()
   const cityData = cities.find(
-    (city) => city.city.toLowerCase() === params.city
+    (city) => city.slug === params.city
   )
 
   if (!cityData) {

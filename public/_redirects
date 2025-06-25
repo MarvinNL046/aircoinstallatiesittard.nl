@@ -1,0 +1,30 @@
+# City redirects for spaces in URLs (URL encoded)
+/steden/berg%20en%20terblijt    /steden/berg-en-terblijt    301
+/steden/nieuw%20bergen           /steden/nieuw-bergen        301
+/steden/maria%20hoop             /steden/maria-hoop          301
+/steden/sint%20geertruid         /steden/sint-geertruid      301
+/steden/sint%20odilienberg       /steden/sint-odilienberg    301
+/steden/ohe%20en%20laak          /steden/ohe-en-laak         301
+/steden/schin%20op%20geul        /steden/schin-op-geul       301
+/steden/cadier%20en%20keer       /steden/cadier-en-keer      301
+/steden/klein%20genhout          /steden/klein-genhout       301
+/steden/oost%20maarland          /steden/oost-maarland       301
+/steden/nieuw%20bergen           /steden/nieuw-bergen        301
+/steden/ven%20zelderheide        /steden/ven-zelderheide     301
+
+# Alternative formats
+/steden/berg-en-terblijt/*      /steden/berg-en-terblijt    301
+/steden/sint-geertruid/*         /steden/sint-geertruid      301
+/steden/sint-odilienberg/*       /steden/sint-odilienberg    301
+/steden/ohe-en-laak/*            /steden/ohe-en-laak         301
+/steden/schin-op-geul/*          /steden/schin-op-geul       301
+/steden/cadier-en-keer/*         /steden/cadier-en-keer      301
+
+# Parkstad redirect to steden overview (it's a region, not a city)
+/steden/parkstad                 /steden                     301
+/steden/parkstad/*               /steden                     301
+
+# Common misspellings and variations
+/steden/sittard-geleen           /steden/sittard             301
+/steden/maastricht-airport       /steden/beek                301
+/steden/geleen-zuid              /steden/geleen              301

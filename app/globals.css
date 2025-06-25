@@ -4,48 +4,90 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222.2 84% 4.9%;
+    /* StayCool Design System Colors */
+    --orange-500: 25 95% 53%;
+    --orange-600: 21 90% 48%;
+    --orange-700: 15 79% 42%;
+    
+    --blue-600: 221 83% 53%;
+    --blue-700: 221 90% 48%;
+    --blue-800: 221 83% 32%;
+    --blue-900: 221 83% 32%;
+    
+    --gray-50: 210 20% 98%;
+    --gray-100: 220 14% 96%;
+    --gray-300: 216 12% 84%;
+    --gray-600: 215 19% 35%;
+    --gray-700: 215 25% 27%;
+    --gray-800: 217 33% 17%;
+    --gray-900: 222 47% 11%;
+    
+    /* Base colors mapping */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 221 83% 53%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 19% 35%;
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 216 12% 84%;
+    --input: 216 12% 84%;
+    --ring: 25 95% 53%;
     --radius: 0.5rem;
+    
+    /* Typography sizes */
+    --text-6xl: 3.75rem;
+    --text-5xl: 3rem;
+    --text-4xl: 2.25rem;
+    --text-3xl: 1.875rem;
+    --text-2xl: 1.5rem;
+    --text-xl: 1.25rem;
+    --text-lg: 1.125rem;
+    --text-base: 1rem;
+    --text-sm: 0.875rem;
   }
- 
+
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --background: 222 47% 11%;
+    --foreground: 210 20% 98%;
+    --card: 217 33% 17%;
+    --card-foreground: 210 20% 98%;
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 221 83% 53%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 215 25% 27%;
+    --muted-foreground: 216 12% 84%;
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 25% 27%;
+    --input: 215 25% 27%;
+    --ring: 25 95% 53%;
+  }
+  
+  /* Responsive typography */
+  @media (min-width: 1024px) {
+    :root {
+      --text-6xl: 4.5rem;
+      --text-5xl: 3.75rem;
+      --text-4xl: 3rem;
+      --text-3xl: 2.25rem;
+      --text-2xl: 1.875rem;
+      --text-xl: 1.5rem;
+    }
   }
 }
 
@@ -55,6 +97,25 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Custom button styles */
+@layer components {
+  .btn-primary {
+    @apply bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-gray-700 font-semibold py-3 px-6 rounded-lg border-2 border-gray-300 transition-all duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200;
+  }
+  
+  .input-field {
+    @apply border border-gray-300 rounded-lg px-4 py-3 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all duration-200 outline-none;
   }
 }
 
@@ -69,6 +130,7 @@ grammarly-desktop-integration {
   display: contents !important;
 }
 
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -89,6 +151,37 @@ grammarly-desktop-integration {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Utility classes */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s ease-out;
+}
+
+.typewriter-cursor::after {
+  content: '|';
+  display: inline-block;
+  animation: blink 1s infinite;
+}
+
+/* Gradient backgrounds */
+.bg-hero-gradient {
+  background: linear-gradient(135deg, hsl(var(--gray-900)) 0%, hsl(var(--blue-900)) 50%, hsl(var(--gray-900)) 100%);
+}
+
+/* Glassmorphism */
+.glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/20;
 }
 
 .bg-grid-white\/\[0\.2\] {
