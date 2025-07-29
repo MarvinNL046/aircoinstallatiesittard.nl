@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
-import { sendEmail } from "@/lib/emailjs"
+import { sendEmail, trackFormSubmission, trackPixelFormSubmission } from "@/lib/emailjs"
 import { toast } from "sonner"
 
 const rotatingHeadlines = [
@@ -52,8 +52,14 @@ export function HeroOptimized() {
     if (result.success) {
       toast.success("Bedankt voor uw aanvraag! We nemen binnen 24 uur contact met u op.")
       setFormData({ name: "", email: "", phone: "", postcode: "" })
+      // Track success
+      trackFormSubmission("hero_quote_form", true)
+      trackPixelFormSubmission("hero_quote_form", true)
     } else {
       toast.error("Er ging iets mis. Probeer het later opnieuw of bel ons direct.")
+      // Track failure
+      trackFormSubmission("hero_quote_form", false)
+      trackPixelFormSubmission("hero_quote_form", false)
     }
   }
 

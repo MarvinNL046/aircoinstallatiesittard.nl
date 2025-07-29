@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { sendEmail } from "@/lib/emailjs"
+import { sendEmail, trackFormSubmission, trackPixelFormSubmission } from "@/lib/emailjs"
 import { toast } from "sonner"
 
 const contactInfo = [
@@ -58,8 +58,14 @@ export function ContactSection() {
     if (result.success) {
       toast.success("Bedankt voor uw bericht! We nemen zo snel mogelijk contact met u op.")
       setFormData({ name: "", email: "", phone: "", message: "" })
+      // Track success
+      trackFormSubmission("contact_form", true)
+      trackPixelFormSubmission("contact_form", true)
     } else {
       toast.error("Er ging iets mis. Probeer het later opnieuw of bel ons direct.")
+      // Track failure
+      trackFormSubmission("contact_form", false)
+      trackPixelFormSubmission("contact_form", false)
     }
   }
 

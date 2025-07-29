@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Send } from 'lucide-react';
-import { sendEmail } from '@/lib/emailjs';
+import { sendEmail, trackFormSubmission, trackPixelFormSubmission } from '@/lib/emailjs';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -31,10 +31,27 @@ export default function ContactForm() {
     setStatus('sending');
 
     try {
-      await sendEmail(formData);
-      setStatus('success');
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      const result = await sendEmail(formData);
+      if (result.success) {
+        // Track successful submission
+        trackFormSubmission('contact_form', true);
+        trackPixelFormSubmission('contact_form', true);
+        
+        setStatus('success');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        // Track failed submission
+        trackFormSubmission('contact_form', false);
+        trackPixelFormSubmission('contact_form', false);
+        
+        console.error('Send failed:', result.error);
+        setStatus('error');
+      }
     } catch (error) {
+      // Track failed submission
+      trackFormSubmission('contact_form', false);
+      trackPixelFormSubmission('contact_form', false);
+      
       console.error('Error:', error);
       setStatus('error');
     }

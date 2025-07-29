@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "sonner"
 import { Loader2 } from "lucide-react"
-import { sendEmail } from "@/lib/emailjs"
+import { sendEmail, trackFormSubmission, trackPixelFormSubmission } from "@/lib/emailjs"
 
 interface ContactFormProps {
   cityName?: string
@@ -28,17 +28,36 @@ export function ContactForm({ cityName }: ContactFormProps) {
     setIsSubmitting(true)
 
     try {
-      await sendEmail(formData)
-      toast.success("Uw aanvraag is succesvol verzonden!")
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: cityName 
-          ? `Ik wil graag een offerte aanvragen voor een airco in ${cityName}.`
-          : "",
-      })
+      const result = await sendEmail(formData)
+      if (result.success) {
+        // Track successful submission
+        const formType = cityName ? "city_contact_form" : "contact_form"
+        trackFormSubmission(formType, true)
+        trackPixelFormSubmission(formType, true)
+        
+        toast.success("Uw aanvraag is succesvol verzonden!")
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: cityName 
+            ? `Ik wil graag een offerte aanvragen voor een airco in ${cityName}.`
+            : "",
+        })
+      } else {
+        // Track failed submission
+        const formType = cityName ? "city_contact_form" : "contact_form"
+        trackFormSubmission(formType, false)
+        trackPixelFormSubmission(formType, false)
+        
+        toast.error("Er ging iets mis. Probeer het later opnieuw.")
+      }
     } catch (error) {
+      // Track failed submission
+      const formType = cityName ? "city_contact_form" : "contact_form"
+      trackFormSubmission(formType, false)
+      trackPixelFormSubmission(formType, false)
+      
       toast.error("Er ging iets mis. Probeer het later opnieuw.")
     } finally {
       setIsSubmitting(false)

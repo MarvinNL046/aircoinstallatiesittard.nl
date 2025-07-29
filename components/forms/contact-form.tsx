@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "sonner"
 import { Loader2 } from "lucide-react"
-import { sendEmail } from "@/lib/emailjs"
+import { sendEmail, trackFormSubmission, trackPixelFormSubmission } from "@/lib/emailjs"
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -22,15 +22,31 @@ export function ContactForm() {
     setIsSubmitting(true)
 
     try {
-      await sendEmail(formData)
-      toast.success("Uw aanvraag is succesvol verzonden!")
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-      })
+      const result = await sendEmail(formData)
+      if (result.success) {
+        // Track successful submission
+        trackFormSubmission("contact_form", true)
+        trackPixelFormSubmission("contact_form", true)
+        
+        toast.success("Uw aanvraag is succesvol verzonden!")
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        })
+      } else {
+        // Track failed submission
+        trackFormSubmission("contact_form", false)
+        trackPixelFormSubmission("contact_form", false)
+        
+        toast.error("Er ging iets mis. Probeer het later opnieuw.")
+      }
     } catch (error) {
+      // Track failed submission
+      trackFormSubmission("contact_form", false)
+      trackPixelFormSubmission("contact_form", false)
+      
       toast.error("Er ging iets mis. Probeer het later opnieuw.")
     } finally {
       setIsSubmitting(false)
